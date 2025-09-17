@@ -1,0 +1,28 @@
+{
+  "name": "@io/data-models",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@io/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "generate": "npx @hey-api/openapi-ts --input src/schemas/users-schema.yaml --output src/types --client @hey-api/client-fetch",
+    "generate:watch": "npx @hey-api/openapi-ts --input src/schemas/users-schema.yaml --output src/types --client @hey-api/client-fetch --watch"
+  },
+  "dependencies": {
+    "@hey-api/client-fetch": "^0.13.1",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.83.1"
+  }
+}

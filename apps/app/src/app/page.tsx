@@ -1,4 +1,10 @@
-export default function Index() {
+import { getUsers } from '@io/data-models';
+
+export default async function Index() {
+  const response = await getUsers({ baseUrl: 'http://localhost:3333/api' });
+
+  console.log('users:', response.data);
+
   /*
    * Replace the elements below with your own.
    *

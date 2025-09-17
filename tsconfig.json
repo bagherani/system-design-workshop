@@ -26,6 +26,9 @@
     },
     {
       "path": "./apps/users-service-rest"
+    },
+    {
+      "path": "./libs/data-models"
     }
   ]
 }

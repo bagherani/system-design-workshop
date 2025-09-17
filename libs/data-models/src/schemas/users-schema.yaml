@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Users API
+  description: Simple users service API
+  version: 1.0.0
+
+paths:
+  /users:
+    get:
+      summary: Get list of users
+      operationId: getUsers
+      responses:
+        '200':
+          description: List of users retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersListResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - name
+        - email
+      properties:
+        id:
+          type: string
+          description: User unique identifier
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        name:
+          type: string
+          description: User full name
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          description: User email address
+          example: "john.doe@example.com"
+
+    UsersListResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          description: List of users
+        total:
+          type: integer
+          description: Total number of users
+          example: 42
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: "Something went wrong"
+        code:
+          type: string
+          description: Error code
+          example: "INTERNAL_ERROR"
