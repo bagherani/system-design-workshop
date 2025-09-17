@@ -61,7 +61,16 @@
       "exclude": [
         "apps/users-service-e2e/**/*",
         "apps/orders-service-e2e/**/*",
-        "apps/products-service-e2e/**/*"
+        "apps/products-service-e2e/**/*",
+        "apps/users-service-e2e/**/*",
+        "apps/users-service/src/apps/orders-service-rest-e2e/**/*",
+        "apps/orders-service-rest-e2e/**/*",
+        "orders-service-rest-e2e/**/*",
+        "apps/orders-service-rest-e2e/**/*",
+        "apps/rest/orders-service-e2e/**/*",
+        "apps/orders-service-e2e/**/*",
+        "apps/orders-service-rest-e2e/**/*",
+        "apps/users-service-rest-e2e/**/*"
       ]
     },
     {
@@ -79,6 +88,11 @@
   "targetDefaults": {
     "test": {
       "dependsOn": ["^build"]
+    },
+    "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "generators": {

@@ -1,0 +1,26 @@
+{
+  "name": "@io/users-service-rest-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@io/users-service-rest"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/users-service-rest-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@io/users-service-rest:build",
+          "@io/users-service-rest:serve"
+        ]
+      }
+    }
+  }
+}
