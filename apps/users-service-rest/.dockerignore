@@ -1,0 +1,38 @@
+# Ignore source files (we only need dist)
+src/
+*.ts
+*.spec.ts
+
+# Ignore development dependencies and config files
+node_modules/
+eslint.config.mjs
+jest.config.ts
+tsconfig*.json
+webpack.config.js
+
+# Ignore development files
+.nx/
+.vscode/
+.idea/
+
+# Ignore Git files
+.git/
+.gitignore
+
+# Ignore documentation
+README.md
+*.md
+
+# Ignore logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
