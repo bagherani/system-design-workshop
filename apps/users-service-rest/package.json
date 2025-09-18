@@ -67,7 +67,6 @@
   },
   "dependencies": {
     "@faker-js/faker": "^9.4.0",
-    "@io/data-models": "workspace:*",
     "express": "^4.21.2"
   }
 }
