@@ -3,10 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "docker:build": "docker build -t users-service-rest .",
-    "docker:run1": "docker run -d -p 5001:5001 -e PORT=5001 users-service-rest",
-    "docker:run2": "docker run -d -p 5002:5002 -e PORT=5002 users-service-rest",
-    "dockerize": "npm run docker:build && npm run docker:run1 && npm run docker:run2"
+    "docker:build": "docker build -t users-service-rest ."
   },
   "nx": {
     "targets": {
