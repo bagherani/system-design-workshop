@@ -9,7 +9,12 @@ const { composePlugins, withNx } = require('@nx/next');
 const nextConfig = {
   // Use this to set Nx-specific options
   // See: https://nx.dev/recipes/next/next-config-setup
-  nx: {},
+  nx: {
+  },
+  env: {
+    PORT: "5003",
+    USERS_SERVICE_URL: "http://localhost:5000/api",
+  }
 };
 
 const plugins = [

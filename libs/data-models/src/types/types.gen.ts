@@ -15,16 +15,10 @@ export type User = {
     email: string;
 };
 
-export type UsersListResponse = {
-    /**
-     * List of users
-     */
-    users?: Array<User>;
-    /**
-     * Total number of users
-     */
-    total?: number;
-};
+/**
+ * List of users
+ */
+export type UsersListResponse = Array<User>;
 
 export type _Error = {
     /**

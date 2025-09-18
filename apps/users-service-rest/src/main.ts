@@ -7,6 +7,8 @@ import express from 'express';
 import * as path from 'path';
 import { faker } from '@faker-js/faker';
 import { type User } from '@io/data-models';
+// TODO: complete the rest API
+// import { getOrders } from '@io/data-models';
 
 const app = express();
 
@@ -19,10 +21,14 @@ app.get('/api/users', (req, res) => {
     email: faker.internet.email(),
   }));
 
+  // TODO: complete the rest API
+  // get orders of the users
+  // example: getOrders(users.map(x=>x.id));
+
   res.send(users);
 });
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });

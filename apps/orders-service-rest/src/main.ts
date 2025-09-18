@@ -16,17 +16,14 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/orders', (req, res) => {
-  const orders = Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    name: faker.commerce.productName(),
-    description: faker.commerce.productDescription(),
-    price: Number(faker.commerce.price({ min: 10, max: 1000 })),
-  }));
+  const orders = [];
+
+  // TODO: complete the rest API
 
   res.send(orders);
 });
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });

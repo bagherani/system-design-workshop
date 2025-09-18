@@ -31,6 +31,9 @@ components:
         - id
         - name
         - email
+        # TODO: complete the rest API
+        # - orders
+
       properties:
         id:
           type: string
@@ -47,17 +50,10 @@ components:
           example: "john.doe@example.com"
 
     UsersListResponse:
-      type: object
-      properties:
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-          description: List of users
-        total:
-          type: integer
-          description: Total number of users
-          example: 42
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+      description: List of users
 
     Error:
       type: object

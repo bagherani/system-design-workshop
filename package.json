@@ -2,7 +2,11 @@
   "name": "@io/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "users-service-rest": "nx serve users-service-rest",
+    "orders-service-rest": "nx serve orders-service-rest",
+    "app": "nx dev app -p 5003"
+  },
   "private": true,
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
