@@ -1,7 +1,7 @@
 import { getUsers } from '@io/data-models';
 
 export default async function Index() {
-  const response = await getUsers({ baseUrl: process.env.USERS_SERVICE_URL });
+  await getUsers({ baseUrl: process.env.USERS_SERVICE_URL });
 
   return (
     <div>
