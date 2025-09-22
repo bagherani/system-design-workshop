@@ -2,6 +2,10 @@
   "name": "@io/app",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "docker:build": "docker build -t next_app .",
+    "docker:run": "docker run -d -p 5003:80 next_app"
+  },
   "dependencies": {
     "next": "~15.2.4",
     "react": "19.0.0",

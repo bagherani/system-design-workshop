@@ -14,7 +14,8 @@ const nextConfig = {
   env: {
     PORT: "5003",
     USERS_SERVICE_URL: "http://localhost:5000/api",
-  }
+  },
+  output: 'export'
 };
 
 const plugins = [
