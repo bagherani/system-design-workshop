@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
     "docker:build": "docker build -t next_app .",
     "docker:run": "docker run -d -p 5003:80 next_app"
   },

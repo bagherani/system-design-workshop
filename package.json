@@ -91,10 +91,7 @@
   "workspaces": [
     "apps/*",
     "apps/users-service/src/apps/*",
-    "orders-service-rest",
-    "orders-service-rest-e2e",
-    "apps/rest/*",
     "libs/data-models",
-    "grpc-types"
+    "libs/grpc-types"
   ]
 }

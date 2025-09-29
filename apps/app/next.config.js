@@ -12,8 +12,7 @@ const nextConfig = {
   nx: {
   },
   env: {
-    PORT: "5003",
-    USERS_SERVICE_URL: "http://localhost:5000/api",
+    PORT: "5003"
   },
   output: 'export'
 };
