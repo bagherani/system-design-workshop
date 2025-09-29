@@ -23,6 +23,10 @@ const ordersClient = new Orders(
   grpc.credentials.createInsecure()
 );
 
+// ordersClient.GetOrders({ userId: '123' }, (error: grpc.ServiceError | null, response: GetOrdersReply) => {
+//   console.log(error, response.orders);
+// });
+
 interface User {
   id: string;
   name: string;
