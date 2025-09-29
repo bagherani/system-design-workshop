@@ -16,6 +16,10 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@io/source"]
+    "customConditions": ["@io/source"],
+    "paths": {
+      "@io/data-models": ["libs/data-models/src/index.ts"],
+      "@io/grpc-types": ["libs/grpc-types/dist/index.d.ts"]
+    }
   }
 }

@@ -3,12 +3,13 @@
   "compilerOptions": {
     "baseUrl": "../../",
     "outDir": "dist",
-    "module": "nodenext",
+    "module": "esnext",
     "types": [
       "node"
     ],
-    "moduleResolution": "nodenext",
-    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
+    "moduleResolution": "bundler",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts"

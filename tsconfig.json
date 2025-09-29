@@ -4,31 +4,22 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/app-e2e"
-    },
-    {
       "path": "./apps/app"
-    },
-    {
-      "path": "./apps/users-service-e2e"
     },
     {
       "path": "./apps/users-service"
     },
     {
-      "path": "./apps/orders-service-rest-e2e"
-    },
-    {
       "path": "./apps/orders-service-rest"
-    },
-    {
-      "path": "./apps/users-service-rest-e2e"
     },
     {
       "path": "./apps/users-service-rest"
     },
     {
       "path": "./libs/data-models"
+    },
+    {
+      "path": "./apps/orders-service"
     }
   ]
 }

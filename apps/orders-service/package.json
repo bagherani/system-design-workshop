@@ -1,5 +1,5 @@
 {
-  "name": "@io/users-service",
+  "name": "@io/orders-service",
   "version": "0.0.1",
   "private": true,
   "nx": {
@@ -12,15 +12,15 @@
         "defaultConfiguration": "production",
         "options": {
           "platform": "node",
-          "outputPath": "apps/users-service/dist",
+          "outputPath": "apps/orders-service/dist",
           "format": [
             "cjs"
           ],
           "bundle": false,
-          "main": "apps/users-service/src/main.ts",
-          "tsConfig": "apps/users-service/tsconfig.app.json",
+          "main": "apps/orders-service/src/main.ts",
+          "tsConfig": "apps/orders-service/tsconfig.app.json",
           "assets": [
-            "apps/users-service/src/assets",
+            "apps/orders-service/src/assets",
             {
               "input": "libs/grpc-types/src/proto",
               "glob": "**/*",
@@ -53,8 +53,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/apps/users-service/dist/package.json",
-          "{workspaceRoot}/apps/users-service/dist/package-lock.json"
+          "{workspaceRoot}/apps/orders-service/dist/package.json",
+          "{workspaceRoot}/apps/orders-service/dist/package-lock.json"
         ],
         "options": {
           "buildTarget": "build"
@@ -66,7 +66,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/apps/users-service/dist/workspace_modules"
+          "{workspaceRoot}/apps/orders-service/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -88,15 +88,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@io/users-service:build",
+          "buildTarget": "@io/orders-service:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@io/users-service:build:development"
+            "buildTarget": "@io/orders-service:build:development"
           },
           "production": {
-            "buildTarget": "@io/users-service:build:production"
+            "buildTarget": "@io/orders-service:build:production"
           }
         }
       },
@@ -107,5 +107,14 @@
       }
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@io/grpc-types": "*"
+  },
+  "scripts": {
+    "serve": "nx serve orders-service",
+    "serve:prod": "nx serve orders-service --configuration=production",
+    "build": "nx build orders-service",
+    "build:prod": "nx build orders-service --configuration=production",
+    "start": "nx serve orders-service --configuration=production"
+  }
 }

@@ -22,7 +22,8 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
+    "rxjs": "^7.8.0",
+    "ts-proto": "^2.7.7"
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
@@ -94,6 +95,7 @@
     "orders-service-rest",
     "orders-service-rest-e2e",
     "apps/rest/*",
-    "libs/data-models"
+    "libs/data-models",
+    "grpc-types"
   ]
 }

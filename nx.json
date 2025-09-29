@@ -70,7 +70,8 @@
         "apps/rest/orders-service-e2e/**/*",
         "apps/orders-service-e2e/**/*",
         "apps/orders-service-rest-e2e/**/*",
-        "apps/users-service-rest-e2e/**/*"
+        "apps/users-service-rest-e2e/**/*",
+        "apps/orders-service-e2e/**/*"
       ]
     },
     {
