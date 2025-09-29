@@ -10,9 +10,6 @@
       "path": "./apps/users-service"
     },
     {
-      "path": "./apps/orders-service-rest"
-    },
-    {
       "path": "./apps/users-service-rest"
     },
     {
