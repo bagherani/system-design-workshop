@@ -8,14 +8,12 @@ import * as path from 'path';
 import { faker } from '@faker-js/faker';
 import { type User } from '@io/data-models';
 import { ip } from 'address';
-// TODO: complete the rest API
-// import { getOrders } from '@io/data-models';
 
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/api', (req, res) => {
+app.get('/healthz', (req, res) => {
   res.send({
     message: `Server IP address: ${ip()}, Server port: ${process.env.PORT}`,
   });
@@ -27,10 +25,6 @@ app.get('/api/users', (req, res) => {
     name: faker.person.fullName(),
     email: faker.internet.email(),
   }));
-
-  // TODO: complete the rest API
-  // get orders of the users
-  // example: getOrders(users.map(x=>x.id));
 
   res.send(users);
 });

@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "users-service-rest": "nx serve users-service-rest",
-    "orders-service-rest": "nx serve orders-service-rest",
     "app": "nx dev app -p 5003"
   },
   "private": true,

@@ -15,8 +15,7 @@
     }
   },
   "scripts": {
-    "generate": "npx @hey-api/openapi-ts --input src/schemas/users-schema.yaml --output src/types --client @hey-api/client-fetch",
-    "generate:watch": "npx @hey-api/openapi-ts --input src/schemas/users-schema.yaml --output src/types --client @hey-api/client-fetch --watch"
+    "generate": "npx @hey-api/openapi-ts --input src/schemas/users-schema.yaml --output src/types --client @hey-api/client-fetch"
   },
   "dependencies": {
     "@hey-api/client-fetch": "^0.13.1",

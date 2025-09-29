@@ -31,8 +31,6 @@ components:
         - id
         - name
         - email
-        # TODO: complete the rest API
-        # - orders
 
       properties:
         id:
