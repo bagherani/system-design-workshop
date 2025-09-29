@@ -1,22 +1,26 @@
-## build the app
-
-- nx build users-service-rest
-
-## build the docker image
+## 1- Build the app
 
 ```
-docker build -t users-service-rest .
+nx build users-service-rest
 ```
 
-## run the docker images
+## 2- build the docker image
 
 ```
 cd apps/users-service-rest
+docker build -t users-service-rest .
+# or
+npm run docker:build
+```
+
+## 3- Run the docker images
+
+```
 chmod +x run.sh
 ./run.sh
 ```
 
-## go to the nginx shell
+## 4- Go to the nginx shell
 
 ```
 cd /etc/nginx
@@ -35,11 +39,11 @@ http {
         # load balancing algorithm:
         # least_conn;
         # ip_hash;
-        
+
         # weighted:
         # server backend1:5001 weight=2;
         # server backend2:5002 weight=1;
-        
+
         # passive health check
         server backend1:5001 max_fails=3 fail_timeout=30s;
         server backend2:5002 max_fails=3 fail_timeout=30s;
@@ -67,7 +71,17 @@ http {
 }
 ```
 
-nginx -t  
-nginx -s reload
+```
+# test the configuration
+nginx -t
 
-## try to stop one server
+nginx -s reload
+```
+
+## 5- Open http://localhost:6001
+
+Everytime one server should recieve the request
+
+## 6- Try to stop one server
+
+Stop one of the containers
