@@ -9,13 +9,14 @@ import { faker } from '@faker-js/faker';
 import { type User } from '@io/data-models';
 import { ip } from 'address';
 
+const port = process.env.PORT;
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 app.get('/healthz', (req, res) => {
   res.send({
-    message: `Server IP address: ${ip()}, Server port: ${process.env.PORT}`,
+    message: `Server IP address: ${ip()}, Server port: ${port}`,
   });
 });
 
@@ -29,7 +30,6 @@ app.get('/api/users', (req, res) => {
   res.send(users);
 });
 
-const port = process.env.PORT;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
