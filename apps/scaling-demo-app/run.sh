@@ -6,7 +6,7 @@ docker run -d \
   --network my-network \
   -p 5001:5001 \
   -e PORT=5001 \
-  users-service-rest
+  scaling-demo-app
 
 # Backend 2
 docker run -d \
@@ -14,7 +14,7 @@ docker run -d \
   --network my-network \
   -p 5002:5002 \
   -e PORT=5002 \
-  users-service-rest
+  scaling-demo-app
 
 # Nginx
 docker run -d \

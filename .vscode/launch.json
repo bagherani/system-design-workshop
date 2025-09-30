@@ -40,9 +40,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug @io/users-service-rest with Nx",
+      "name": "Debug @io/scaling-demo-app with Nx",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["nx", "serve", "@io/users-service-rest"],
+      "runtimeArgs": ["nx", "serve", "@io/scaling-demo-app"],
       "env": {
         "NODE_OPTIONS": "--inspect=9231"
       },
@@ -51,7 +51,7 @@
       "skipFiles": ["<node_internals>/**"],
       "sourceMaps": true,
       "outFiles": [
-        "${workspaceFolder}/apps/users-service-rest/dist/**/*.(m|c|)js",
+        "${workspaceFolder}/apps/scaling-demo-app/dist/**/*.(m|c|)js",
         "!**/node_modules/**"
       ]
     },

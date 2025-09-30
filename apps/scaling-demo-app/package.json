@@ -1,9 +1,9 @@
 {
-  "name": "@io/users-service-rest",
+  "name": "@io/scaling-demo-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "docker:build": "docker build -t users-service-rest ."
+    "docker:build": "docker build -t scaling-demo-app ."
   },
   "nx": {
     "targets": {
@@ -14,8 +14,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/apps/users-service-rest/dist/package.json",
-          "{workspaceRoot}/apps/users-service-rest/dist/package-lock.json"
+          "{workspaceRoot}/apps/scaling-demo-app/dist/package.json",
+          "{workspaceRoot}/apps/scaling-demo-app/dist/package-lock.json"
         ],
         "options": {
           "buildTarget": "build"
@@ -27,7 +27,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/apps/users-service-rest/dist/workspace_modules"
+          "{workspaceRoot}/apps/scaling-demo-app/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -49,15 +49,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@io/users-service-rest:build",
+          "buildTarget": "@io/scaling-demo-app:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@io/users-service-rest:build:development"
+            "buildTarget": "@io/scaling-demo-app:build:development"
           },
           "production": {
-            "buildTarget": "@io/users-service-rest:build:production"
+            "buildTarget": "@io/scaling-demo-app:build:production"
           }
         }
       },
@@ -66,7 +66,8 @@
           "passWithNoTests": true
         }
       }
-    }
+    },
+    "name": "@io/scaling-demo-app"
   },
   "dependencies": {
     "@faker-js/faker": "^9.4.0",

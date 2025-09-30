@@ -1,5 +1,5 @@
 export default {
-  displayName: '@io/users-service-rest',
+  displayName: '@io/scaling-demo-app',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

@@ -1,14 +1,14 @@
 ## 1- Build the app
 
 ```
-nx build users-service-rest
+nx build scaling-demo-app
 ```
 
 ## 2- build the docker image
 
 ```
-cd apps/users-service-rest
-docker build -t users-service-rest .
+cd apps/scaling-demo-app
+docker build -t scaling-demo-app .
 # or
 npm run docker:build
 ```

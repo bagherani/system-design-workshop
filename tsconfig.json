@@ -10,7 +10,7 @@
       "path": "./apps/vehicle-app"
     },
     {
-      "path": "./apps/users-service-rest"
+      "path": "./apps/scaling-demo-app"
     },
     {
       "path": "./libs/data-models"
