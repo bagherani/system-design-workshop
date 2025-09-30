@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package vehicle_location;
+
+service VehicleLocationService {
+  rpc SendVehicleLocation (VehicleLocationRequest) returns (VehicleLocationReply);
+}
+
+message VehicleLocationRequest {
+   VehicleLocation vehicle_locations = 1;
+}
+
+message VehicleLocationReply {
+  int32 status = 1;
+}
+
+message VehicleLocation {
+  string vehicle_id = 1;
+  string route_id = 2;
+  string latitude = 3;
+  string longitude = 4;
+}

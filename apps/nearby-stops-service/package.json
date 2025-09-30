@@ -1,8 +1,9 @@
 {
-  "name": "@io/orders-service",
+  "name": "@io/nearby-stops-service",
   "version": "0.0.1",
   "private": true,
   "nx": {
+    "name": "nearby-stops-service",
     "targets": {
       "build": {
         "executor": "@nx/esbuild:esbuild",
@@ -12,20 +13,15 @@
         "defaultConfiguration": "production",
         "options": {
           "platform": "node",
-          "outputPath": "apps/orders-service/dist",
+          "outputPath": "apps/nearby-stops-service/dist",
           "format": [
             "cjs"
           ],
           "bundle": false,
-          "main": "apps/orders-service/src/main.ts",
-          "tsConfig": "apps/orders-service/tsconfig.app.json",
+          "main": "apps/nearby-stops-service/src/main.ts",
+          "tsConfig": "apps/nearby-stops-service/tsconfig.app.json",
           "assets": [
-            "apps/orders-service/src/assets",
-            {
-              "input": "libs/grpc-types/src/proto",
-              "glob": "**/*",
-              "output": "libs/grpc-types/src/proto"
-            }
+            "apps/nearby-stops-service/src/assets"
           ],
           "esbuildOptions": {
             "sourcemap": true,
@@ -53,8 +49,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/apps/orders-service/dist/package.json",
-          "{workspaceRoot}/apps/orders-service/dist/package-lock.json"
+          "{workspaceRoot}/apps/nearby-stops-service/dist/package.json",
+          "{workspaceRoot}/apps/nearby-stops-service/dist/package-lock.json"
         ],
         "options": {
           "buildTarget": "build"
@@ -66,7 +62,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/apps/orders-service/dist/workspace_modules"
+          "{workspaceRoot}/apps/nearby-stops-service/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -88,15 +84,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@io/orders-service:build",
+          "buildTarget": "nearby-stops-service:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@io/orders-service:build:development"
+            "buildTarget": "nearby-stops-service:build:development"
           },
           "production": {
-            "buildTarget": "@io/orders-service:build:production"
+            "buildTarget": "nearby-stops-service:build:production"
           }
         }
       },
@@ -105,16 +101,10 @@
           "passWithNoTests": true
         }
       }
-    }
+    },
+    "tags": [
+      "npm:private"
+    ]
   },
-  "dependencies": {
-    "@io/grpc-types": "*"
-  },
-  "scripts": {
-    "serve": "nx serve orders-service",
-    "serve:prod": "nx serve orders-service --configuration=production",
-    "build": "nx build orders-service",
-    "build:prod": "nx build orders-service --configuration=production",
-    "start": "nx serve orders-service --configuration=production"
-  }
+  "dependencies": {}
 }

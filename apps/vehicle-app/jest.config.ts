@@ -10,7 +10,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 export default {
-  displayName: '@io/users-service',
+  displayName: '@io/vehicle-app',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

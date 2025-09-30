@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package nearby_stops;
+
+service NearbyStopsService {
+  rpc GetNearbyStops (NearbyStopsRequest) returns (NearbyStopsReply);
+}
+
+message NearbyStopsRequest {
+   UserLocation user_location = 1;
+}
+
+message UserLocation {
+  string latitude = 1;
+  string longitude = 2;
+}
+
+message NearbyStopsReply {
+  repeated NearbyStops nearby_stops = 1;
+}
+
+message NearbyStops {
+  string stop_id = 1;
+  string route_id = 2;
+  string latitude = 3;
+  string longitude = 4;
+}

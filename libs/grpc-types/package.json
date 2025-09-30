@@ -16,7 +16,8 @@
   },
   "scripts": {
     "install-protoc": "brew install protobuf",
-    "generate": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/orders.proto"
+    "generate:vehicle-location": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/vehicle-location.proto",
+    "generate:nearby-stops": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/nearby-stops.proto"
   },
   "dependencies": {
     "tslib": "^2.3.0",

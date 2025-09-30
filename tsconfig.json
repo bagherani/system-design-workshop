@@ -7,7 +7,7 @@
       "path": "./apps/app"
     },
     {
-      "path": "./apps/users-service"
+      "path": "./apps/vehicle-app"
     },
     {
       "path": "./apps/users-service-rest"
@@ -16,7 +16,10 @@
       "path": "./libs/data-models"
     },
     {
-      "path": "./apps/orders-service"
+      "path": "./apps/vehicle-location-service"
+    },
+    {
+      "path": "./apps/nearby-stops-service"
     }
   ]
 }
