@@ -20,6 +20,12 @@
     },
     {
       "path": "./apps/nearby-stops-service"
+    },
+    {
+      "path": "./apps/redis-app"
+    },
+    {
+      "path": "./libs/cache-util"
     }
   ]
 }

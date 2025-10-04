@@ -14,6 +14,7 @@
     "address": "^2.0.3",
     "axios": "^1.6.0",
     "express": "^4.21.2",
+    "ioredis": "^5.8.0",
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -53,6 +54,7 @@
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.1.0",
     "@types/express": "^4.17.21",
+    "@types/ioredis": "^4.28.10",
     "@types/jest": "^30.0.0",
     "@types/node": "20.19.9",
     "@types/react": "19.0.0",
@@ -72,6 +74,7 @@
     "jest-environment-jsdom": "^30.0.2",
     "jest-environment-node": "^30.0.2",
     "jest-util": "^30.0.2",
+    "jsonc-eslint-parser": "^2.1.0",
     "nx": "21.5.2",
     "openapi-typescript": "^7.9.1",
     "postcss": "8.4.38",
@@ -89,6 +92,7 @@
     "apps/*",
     "apps/users-service/src/apps/*",
     "libs/data-models",
-    "libs/grpc-types"
+    "libs/grpc-types",
+    "libs/*"
   ]
 }

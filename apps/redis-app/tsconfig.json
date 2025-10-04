@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/cache-util"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {
