@@ -26,6 +26,9 @@
     },
     {
       "path": "./libs/cache-util"
+    },
+    {
+      "path": "./libs/messaging-util"
     }
   ]
 }
