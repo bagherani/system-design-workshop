@@ -6,6 +6,8 @@ service VehicleLocationService {
   rpc SendVehicleLocation (VehicleLocationRequest) returns (VehicleLocationReply);
 }
 
+// SendVehicleLocation({...}) -> { status: 200 }
+
 message VehicleLocationRequest {
    VehicleLocation vehicle_locations = 1;
 }
