@@ -3,7 +3,7 @@ import * as protoLoader from '@grpc/proto-loader';
 import {
   NearbyStopsRequest,
   NearbyStopsReply,
-  NearbyStops,
+  NearbyStop,
 } from '@io/grpc-types';
 import { join } from 'path';
 import { workspaceRoot } from '@nx/devkit';
@@ -21,8 +21,9 @@ const VehicleLocationService =
 
 const server = new grpc.Server();
 
-// TODO: GRPC - server.addService to be implemented here:
-// ...
+// TODO: GRPC - to be implemented here:
+// server.addService(...);
+
 
 server.bindAsync(
   '0.0.0.0:50052',

@@ -13,3 +13,7 @@ message NearbyStopsRequest {
 message NearbyStopsReply {
   // TODO: GRPC - Add nearby stops
 }
+
+message NearbyStop {
+  // TODO: GRPC - Add nearby stops
+}
