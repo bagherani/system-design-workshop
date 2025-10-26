@@ -1,11 +1,7 @@
 import { faker } from '@faker-js/faker';
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
-import {
-  VehicleLocationRequest,
-  VehicleLocationReply,
-  VehicleLocation,
-} from '@io/grpc-types';
+import { VehicleLocationTypes } from '@io/grpc-types';
 import { join } from 'path';
 import { workspaceRoot } from '@nx/devkit';
 
@@ -35,22 +31,22 @@ interface Vehicle {
   };
 }
 
-function sendVehicleLocation(vehicle: Vehicle): Promise<VehicleLocationReply> {
+function sendVehicleLocation(vehicle: Vehicle): Promise<VehicleLocationTypes.VehicleLocationReply> {
   return new Promise((resolve, reject) => {
-    const locationData: VehicleLocation = {
+    const locationData: VehicleLocationTypes.VehicleLocation = {
       vehicleId: vehicle.id,
       routeId: vehicle.routeId,
       latitude: vehicle.currentLocation.latitude,
       longitude: vehicle.currentLocation.longitude,
     };
 
-    const request: VehicleLocationRequest = {
+    const request: VehicleLocationTypes.VehicleLocationRequest = {
       vehicleLocations: locationData,
     };
 
     vehicleLocationClient.SendVehicleLocation(
       request,
-      (error: grpc.ServiceError | null, response: VehicleLocationReply) => {
+      (error: grpc.ServiceError | null, response: VehicleLocationTypes.VehicleLocationReply) => {
         if (error) {
           console.error(
             `Error sending location for vehicle ${vehicle.id}:`,

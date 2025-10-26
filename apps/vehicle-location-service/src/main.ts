@@ -1,10 +1,6 @@
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
-import {
-  VehicleLocationRequest,
-  VehicleLocationReply,
-  VehicleLocation,
-} from '@io/grpc-types';
+import { VehicleLocationTypes } from '@io/grpc-types';
 import { join } from 'path';
 import { workspaceRoot } from '@nx/devkit';
 
@@ -22,12 +18,12 @@ const VehicleLocationService =
 const server = new grpc.Server();
 
 // In-memory store for vehicle locations (in a real app, you'd use a database)
-const vehicleLocationStore = new Map<string, VehicleLocation>();
+const vehicleLocationStore = new Map<string, VehicleLocationTypes.VehicleLocation>();
 
 server.addService(VehicleLocationService.service, {
   SendVehicleLocation: (
-    call: grpc.ServerUnaryCall<VehicleLocationRequest, VehicleLocationReply>,
-    callback: grpc.sendUnaryData<VehicleLocationReply>
+    call: grpc.ServerUnaryCall<VehicleLocationTypes.VehicleLocationRequest, VehicleLocationTypes.VehicleLocationReply>,
+    callback: grpc.sendUnaryData<VehicleLocationTypes.VehicleLocationReply>
   ) => {
     const request = call.request;
 
