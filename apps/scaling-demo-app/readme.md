@@ -50,7 +50,17 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## 4- Go to the nginx shell
 
+First, access the nginx container:
+
+```bash
+docker exec -it nginx bash
+# or if bash is not available:
+docker exec -it nginx sh
 ```
+
+Then navigate to the nginx configuration directory and edit the config:
+
+```bash
 cd /etc/nginx
 apt-get update
 apt-get install nano
