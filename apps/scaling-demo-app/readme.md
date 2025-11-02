@@ -15,9 +15,37 @@ npm run docker:build
 
 ## 3- Run the docker images
 
-```
+### For Linux/Mac:
+
+```bash
 chmod +x run.sh
 ./run.sh
+```
+
+### For Windows:
+
+**Option 1: Using PowerShell (Recommended)**
+
+```powershell
+.\run.ps1
+```
+
+**Option 2: Using Command Prompt**
+
+```cmd
+run.bat
+```
+
+**Note for Windows users:** If you get an execution policy error in PowerShell, you can bypass it by running:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run.ps1
+```
+
+Or set your execution policy (run PowerShell as Administrator):
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ## 4- Go to the nginx shell
