@@ -1,7 +1,6 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # compiled output
-dist
 tmp
 out-tsc
 
@@ -45,6 +44,5 @@ Thumbs.db
 
 # Next.js
 .next
-out
 
 test-output

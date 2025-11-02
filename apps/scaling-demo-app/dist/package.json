@@ -1,0 +1,79 @@
+{
+  "name": "@io/scaling-demo-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "docker:build": "docker build -t scaling-demo-app ."
+  },
+  "nx": {
+    "targets": {
+      "prune-lockfile": {
+        "dependsOn": [
+          "build"
+        ],
+        "cache": true,
+        "executor": "@nx/js:prune-lockfile",
+        "outputs": [
+          "{workspaceRoot}/apps/scaling-demo-app/dist/package.json",
+          "{workspaceRoot}/apps/scaling-demo-app/dist/package-lock.json"
+        ],
+        "options": {
+          "buildTarget": "build"
+        }
+      },
+      "copy-workspace-modules": {
+        "dependsOn": [
+          "build"
+        ],
+        "cache": true,
+        "outputs": [
+          "{workspaceRoot}/apps/scaling-demo-app/dist/workspace_modules"
+        ],
+        "executor": "@nx/js:copy-workspace-modules",
+        "options": {
+          "buildTarget": "build"
+        }
+      },
+      "prune": {
+        "dependsOn": [
+          "prune-lockfile",
+          "copy-workspace-modules"
+        ],
+        "executor": "nx:noop"
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@io/scaling-demo-app:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@io/scaling-demo-app:build:development"
+          },
+          "production": {
+            "buildTarget": "@io/scaling-demo-app:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      }
+    },
+    "name": "@io/scaling-demo-app"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "address": "2.0.3",
+    "express": "^4.21.2",
+    "tslib": "^2.3.0"
+  },
+  "main": "main.js"
+}
