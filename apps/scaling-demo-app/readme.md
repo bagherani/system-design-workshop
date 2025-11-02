@@ -122,4 +122,8 @@ Everytime one server should recieve the request
 
 ## 6- Try to stop one server
 
+```
+docker stop backend2
+```
+
 Stop one of the containers
