@@ -120,6 +120,12 @@ Check which slots each node handles:
 docker exec -it redis-node-1 redis-cli -p 6379 cluster nodes
 ```
 
+### Validate
+```
+CLUSTER KEYSLOT keyName
+CLUSTER SLOTS
+```
+
 ---
 
 ### Cleanup
