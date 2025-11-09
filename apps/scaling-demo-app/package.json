@@ -70,8 +70,17 @@
     "name": "@io/scaling-demo-app"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.927.0",
+    "@aws-sdk/lib-storage": "^3.927.0",
+    "@aws-sdk/s3-request-presigner": "^3.927.0",
     "@faker-js/faker": "^9.4.0",
+    "address": "^2.0.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "multer": "^2.0.2",
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/multer": "^2.0.0"
   }
 }
