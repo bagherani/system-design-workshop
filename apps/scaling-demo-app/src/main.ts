@@ -6,7 +6,7 @@ import multer from 'multer';
 import 'dotenv/config';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5001;
 const app = express();
 
 // Configure multer for memory storage
