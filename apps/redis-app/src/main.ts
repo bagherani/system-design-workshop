@@ -45,6 +45,13 @@ import { redisCluster, closeRedisCluster } from '@io/cache-util';
   console.log('✅ Hash Tags + MGET:', { name, email, age });
 
   /**
+   * Atomic set and get with NX flag
+   */
+  await redisCluster.set('seat:1001', 'user:1001', 'EX', 300, 'NX');
+  const seat1001 = await redisCluster.get('seat:1001');
+  console.log('✅ Atomic set:', seat1001);
+
+  /**
    * INCR - Distributed Counter Pattern
    * Using hash tags to keep shards on same node for efficient MGET
    */
