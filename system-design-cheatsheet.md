@@ -19,15 +19,15 @@
     * Storage
     * Indexes, Partitions, Shards
 * Scalability & Bottlenecks
-* API
-    * Autoscaling
-* DB
-    * Replica, Sharding, Partitioning
-* Cache
-    * Cache Cluster
-* Events
-    * Event brokers
-    * Scaling Event Consumers
+    * API
+        * Autoscaling
+    * DB
+        * Replica, Sharding, Partitioning
+    * Cache
+        * Cache Cluster
+    * Events
+        * Event brokers
+        * Scaling Event Consumers
 * Reliability
     * Cache
         * Caching Strategy
