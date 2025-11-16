@@ -91,13 +91,40 @@ const lib_storage_1 = __webpack_require__(5);
 const multer_1 = tslib_1.__importDefault(__webpack_require__(6));
 __webpack_require__(7);
 const s3_request_presigner_1 = __webpack_require__(8);
-const port = process.env.PORT;
+const port = process.env.PORT || 5001;
 const app = (0, express_1.default)();
 // Configure multer for memory storage
 const upload = (0, multer_1.default)({ storage: multer_1.default.memoryStorage() });
 app.get('/healthz', (req, res) => {
     res.send({
         message: `Server IP address: ${(0, address_1.ip)()}, Server port: ${port}`,
+    });
+});
+app.get('/', async (req, res) => {
+    const value = 'mohi-cartoon.jpeg-1762702280690.jpeg';
+    const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+    const region = process.env.AWS_REGION;
+    const bucketName = process.env.AWS_BUCKET_NAME;
+    if (!accessKeyId || !secretAccessKey || !region || !bucketName) {
+        return res.status(500).send({
+            message: 'AWS credentials not configured',
+        });
+    }
+    const s3 = new client_s3_1.S3Client({
+        region,
+        credentials: {
+            accessKeyId,
+            secretAccessKey,
+        },
+    });
+    const presignedUrl = await (0, s3_request_presigner_1.getSignedUrl)(s3, new client_s3_1.GetObjectCommand({
+        Bucket: bucketName,
+        Key: value,
+    }));
+    res.send({
+        key: value,
+        presignedUrl,
     });
 });
 app.post('/', upload.single('file'), async (req, res) => {
@@ -138,6 +165,7 @@ app.post('/', upload.single('file'), async (req, res) => {
             Body: file.buffer,
         },
     });
+    // store in you db
     await s3Upload.done();
     // generate presigned url for the file
     const presignedUrl = await (0, s3_request_presigner_1.getSignedUrl)(s3, new client_s3_1.GetObjectCommand({

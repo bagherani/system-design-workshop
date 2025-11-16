@@ -18,6 +18,41 @@ app.get('/healthz', (req, res) => {
   });
 });
 
+app.get('/', async (req, res) => {
+  const user = { id: 1123, profileKey: value };
+  const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+  const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+  const region = process.env.AWS_REGION;
+  const bucketName = process.env.AWS_BUCKET_NAME;
+
+  if (!accessKeyId || !secretAccessKey || !region || !bucketName) {
+    return res.status(500).send({
+      message: 'AWS credentials not configured',
+    });
+  }
+
+  const s3 = new S3Client({
+    region,
+    credentials: {
+      accessKeyId,
+      secretAccessKey,
+    },
+  });
+
+  const presignedUrl = await getSignedUrl(
+    s3,
+    new GetObjectCommand({
+      Bucket: bucketName,
+      Key: value,
+    })
+  );
+
+  res.send({
+    key: value,
+    presignedUrl,
+  });
+});
+
 app.post(
   '/',
   upload.single('file'),
@@ -55,7 +90,9 @@ app.post(
       },
     });
 
-    const Key = `${file.originalname}-${Date.now()}.${file.mimetype.split('/')[1]}`;
+    const Key = `${file.originalname}-${Date.now()}.${
+      file.mimetype.split('/')[1]
+    }`;
     const s3Upload = new Upload({
       client: s3,
       params: {
@@ -64,6 +101,7 @@ app.post(
         Body: file.buffer,
       },
     });
+    // store in you db
 
     await s3Upload.done();
 

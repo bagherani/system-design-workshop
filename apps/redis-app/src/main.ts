@@ -47,10 +47,11 @@ import { redisCluster, closeRedisCluster } from '@io/cache-util';
   /**
    * Atomic set and get with NX flag
    */
-  await redisCluster.set('seat:1001', 'user:1001', 'EX', 300, 'NX');
+  await redisCluster.set('product:1001', 'user:1001', 'EX', 300, 'NX');
   const seat1001 = await redisCluster.get('seat:1001');
   console.log('✅ Atomic set:', seat1001);
 
+  
   /**
    * INCR - Distributed Counter Pattern
    * Using hash tags to keep shards on same node for efficient MGET
@@ -58,7 +59,7 @@ import { redisCluster, closeRedisCluster } from '@io/cache-util';
   const SHARD_COUNT = 3;
 
   // Simulate 3 workers incrementing the counter
-  for (let workerId = 0; workerId < 3; workerId++) {
+  for (let workerId = 0; workerId < 3000000; workerId++) {
     const shardId = workerId % SHARD_COUNT;
     // Hash tag {post:1001} ensures all shards on same node
     await redisCluster.incr(`{post:1001}:views:${shardId}`);
@@ -67,7 +68,7 @@ import { redisCluster, closeRedisCluster } from '@io/cache-util';
   // Read all shards efficiently with MGET (single network call)
   const shardKeys = Array.from(
     { length: SHARD_COUNT },
-    (_, i) => `{post:1001}:views:${i}`
+    (_, i) => `{post:1001}:views:1${i}`
   );
   const shardValues = await redisCluster.mget(...shardKeys);
   const totalViews = shardValues.reduce(

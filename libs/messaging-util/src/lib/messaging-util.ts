@@ -3,7 +3,7 @@ import { Kafka, Producer, Consumer, logLevel } from 'kafkajs';
 // Create Kafka client instance
 export const kafka = new Kafka({
   clientId: 'io-app',
-  brokers: ['localhost:9092'],
+  brokers: ['localhost:9092', 'localhost:9093', 'localhost:9094'],
   logLevel: logLevel.ERROR,
 });
 
