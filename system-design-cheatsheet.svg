@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="297mm" height="210mm" viewBox="0 0 1123 794" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .node-text { 
+        font-family: Arial, sans-serif; 
+        font-size: 11px; 
+        fill: #ffffff;
+        text-anchor: start;
+      }
+      .node-rect { 
+        stroke: #333; 
+        stroke-width: 1.5;
+        rx: 4;
+      }
+      .connection { 
+        stroke: #666; 
+        stroke-width: 1.5; 
+        fill: none;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1123" height="794" fill="#f8f9fa"/>
+  
+  <!-- Root: Clarify Requirements (Color: #e74c3c - Red) -->
+  <rect x="20" y="20" width="180" height="30" class="node-rect" fill="#e74c3c"/>
+  <text x="30" y="40" class="node-text">Clarify Requirements</text>
+  
+  <!-- Level 1: Functional -->
+  <line x1="200" y1="35" x2="220" y2="35" class="connection" stroke="#e74c3c"/>
+  <rect x="220" y="20" width="120" height="30" class="node-rect" fill="#ec7063"/>
+  <text x="230" y="40" class="node-text">Functional</text>
+  
+  <!-- Level 2: Use Cases -->
+  <line x1="340" y1="35" x2="360" y2="35" class="connection" stroke="#ec7063"/>
+  <rect x="360" y="20" width="120" height="30" class="node-rect" fill="#f1948a"/>
+  <text x="370" y="40" class="node-text">Use Cases</text>
+  
+  <!-- Level 3: C4 - Context Diagram -->
+  <line x1="480" y1="35" x2="500" y2="35" class="connection" stroke="#f1948a"/>
+  <rect x="500" y="20" width="180" height="30" class="node-rect" fill="#f5b7b1"/>
+  <text x="510" y="40" class="node-text">C4 - Context Diagram</text>
+  
+  <!-- Level 1: Non-functional -->
+  <line x1="200" y1="35" x2="220" y2="75" class="connection" stroke="#e74c3c"/>
+  <rect x="220" y="60" width="140" height="30" class="node-rect" fill="#ec7063"/>
+  <text x="230" y="80" class="node-text">Non-functional</text>
+  
+  <!-- Level 2: Measurable NFRs -->
+  <line x1="360" y1="75" x2="380" y2="75" class="connection" stroke="#ec7063"/>
+  <rect x="380" y="60" width="140" height="30" class="node-rect" fill="#f1948a"/>
+  <text x="390" y="80" class="node-text">Measurable NFRs</text>
+  
+  <!-- Level 3: Latency, Throughput, etc. -->
+  <line x1="520" y1="75" x2="540" y2="45" class="connection" stroke="#f1948a"/>
+  <rect x="540" y="30" width="100" height="30" class="node-rect" fill="#f5b7b1"/>
+  <text x="550" y="50" class="node-text">Latency</text>
+  
+  <line x1="520" y1="75" x2="540" y2="75" class="connection" stroke="#f1948a"/>
+  <rect x="540" y="65" width="100" height="30" class="node-rect" fill="#f5b7b1"/>
+  <text x="550" y="85" class="node-text">Throughput</text>
+  
+  <line x1="520" y1="75" x2="540" y2="105" class="connection" stroke="#f1948a"/>
+  <rect x="540" y="100" width="180" height="30" class="node-rect" fill="#f5b7b1"/>
+  <text x="550" y="120" class="node-text">Scalability expectations</text>
+  
+  <line x1="520" y1="75" x2="540" y2="135" class="connection" stroke="#f1948a"/>
+  <rect x="540" y="135" width="100" height="30" class="node-rect" fill="#f5b7b1"/>
+  <text x="550" y="155" class="node-text">Availability</text>
+  
+  <line x1="520" y1="75" x2="540" y2="165" class="connection" stroke="#f1948a"/>
+  <rect x="540" y="170" width="60" height="30" class="node-rect" fill="#f5b7b1"/>
+  <text x="550" y="190" class="node-text">...</text>
+  
+  <!-- Root: High Level Architecture (Color: #3498db - Blue) -->
+  <rect x="20" y="220" width="180" height="30" class="node-rect" fill="#3498db"/>
+  <text x="30" y="240" class="node-text">High Level Architecture</text>
+  
+  <!-- Level 1: Components -->
+  <line x1="200" y1="235" x2="220" y2="225" class="connection" stroke="#3498db"/>
+  <rect x="220" y="210" width="120" height="30" class="node-rect" fill="#5dade2"/>
+  <text x="230" y="230" class="node-text">Components</text>
+  
+  <!-- Level 2: C4 - Container Diagram -->
+  <line x1="340" y1="225" x2="360" y2="225" class="connection" stroke="#5dade2"/>
+  <rect x="360" y="210" width="180" height="30" class="node-rect" fill="#85c1e9"/>
+  <text x="370" y="230" class="node-text">C4 - Container Diagram</text>
+  
+  <!-- Level 1: Communications -->
+  <line x1="200" y1="235" x2="220" y2="255" class="connection" stroke="#3498db"/>
+  <rect x="220" y="250" width="140" height="30" class="node-rect" fill="#5dade2"/>
+  <text x="230" y="270" class="node-text">Communications</text>
+  
+  <!-- Root: Data Model & Storage (Color: #2ecc71 - Green) -->
+  <rect x="20" y="300" width="180" height="30" class="node-rect" fill="#2ecc71"/>
+  <text x="30" y="320" class="node-text">Data Model &amp; Storage</text>
+  
+  <!-- Level 1: Entities & Relations -->
+  <line x1="200" y1="315" x2="220" y2="305" class="connection" stroke="#2ecc71"/>
+  <rect x="220" y="290" width="150" height="30" class="node-rect" fill="#58d68d"/>
+  <text x="230" y="310" class="node-text">Entities &amp; Relations</text>
+  
+  <!-- Level 2: Entity Relationship Diagram -->
+  <line x1="370" y1="305" x2="390" y2="305" class="connection" stroke="#58d68d"/>
+  <rect x="390" y="290" width="200" height="30" class="node-rect" fill="#82e0aa"/>
+  <text x="400" y="310" class="node-text">Entity Relationship Diagram</text>
+  
+  <!-- Level 1: Storage -->
+  <line x1="200" y1="315" x2="220" y2="325" class="connection" stroke="#2ecc71"/>
+  <rect x="220" y="325" width="100" height="30" class="node-rect" fill="#58d68d"/>
+  <text x="230" y="345" class="node-text">Storage</text>
+  
+  <!-- Level 1: Indexes, Partitions, Shards -->
+  <line x1="200" y1="315" x2="220" y2="355" class="connection" stroke="#2ecc71"/>
+  <rect x="220" y="360" width="200" height="30" class="node-rect" fill="#58d68d"/>
+  <text x="230" y="380" class="node-text">Indexes, Partitions, Shards</text>
+  
+  <!-- Root: Scalability & Bottlenecks (Color: #f39c12 - Orange) -->
+  <rect x="20" y="410" width="200" height="30" class="node-rect" fill="#f39c12"/>
+  <text x="30" y="430" class="node-text">Scalability &amp; Bottlenecks</text>
+  
+  <!-- Root: API (Color: #9b59b6 - Purple) -->
+  <rect x="20" y="460" width="80" height="30" class="node-rect" fill="#9b59b6"/>
+  <text x="30" y="480" class="node-text">API</text>
+  
+  <!-- Level 1: Autoscaling -->
+  <line x1="100" y1="475" x2="120" y2="475" class="connection" stroke="#9b59b6"/>
+  <rect x="120" y="460" width="120" height="30" class="node-rect" fill="#af7ac5"/>
+  <text x="130" y="480" class="node-text">Autoscaling</text>
+  
+  <!-- Root: DB (Color: #1abc9c - Turquoise) -->
+  <rect x="20" y="510" width="80" height="30" class="node-rect" fill="#1abc9c"/>
+  <text x="30" y="530" class="node-text">DB</text>
+  
+  <!-- Level 1: Replica, Sharding, Partitioning -->
+  <line x1="100" y1="525" x2="120" y2="525" class="connection" stroke="#1abc9c"/>
+  <rect x="120" y="510" width="220" height="30" class="node-rect" fill="#48c9b0"/>
+  <text x="130" y="530" class="node-text">Replica, Sharding, Partitioning</text>
+  
+  <!-- Root: Cache (Color: #e67e22 - Carrot Orange) -->
+  <rect x="380" y="460" width="80" height="30" class="node-rect" fill="#e67e22"/>
+  <text x="390" y="480" class="node-text">Cache</text>
+  
+  <!-- Level 1: Cache Cluster -->
+  <line x1="460" y1="475" x2="480" y2="475" class="connection" stroke="#e67e22"/>
+  <rect x="480" y="460" width="130" height="30" class="node-rect" fill="#eb984e"/>
+  <text x="490" y="480" class="node-text">Cache Cluster</text>
+  
+  <!-- Root: Events (Color: #34495e - Dark Gray) -->
+  <rect x="380" y="510" width="80" height="30" class="node-rect" fill="#34495e"/>
+  <text x="390" y="530" class="node-text">Events</text>
+  
+  <!-- Level 1: Event brokers -->
+  <line x1="460" y1="525" x2="480" y2="515" class="connection" stroke="#34495e"/>
+  <rect x="480" y="500" width="130" height="30" class="node-rect" fill="#5d6d7e"/>
+  <text x="490" y="520" class="node-text">Event brokers</text>
+  
+  <!-- Level 1: Scaling Event Consumers -->
+  <line x1="460" y1="525" x2="480" y2="540" class="connection" stroke="#34495e"/>
+  <rect x="480" y="535" width="190" height="30" class="node-rect" fill="#5d6d7e"/>
+  <text x="490" y="555" class="node-text">Scaling Event Consumers</text>
+  
+  <!-- Root: Reliability (Color: #c0392b - Dark Red) -->
+  <rect x="20" y="560" width="100" height="30" class="node-rect" fill="#c0392b"/>
+  <text x="30" y="580" class="node-text">Reliability</text>
+  
+  <!-- Level 1: Cache -->
+  <line x1="120" y1="575" x2="140" y2="565" class="connection" stroke="#c0392b"/>
+  <rect x="140" y="550" width="80" height="30" class="node-rect" fill="#cd6155"/>
+  <text x="150" y="570" class="node-text">Cache</text>
+  
+  <!-- Level 2: Caching Strategy -->
+  <line x1="220" y1="565" x2="240" y2="565" class="connection" stroke="#cd6155"/>
+  <rect x="240" y="550" width="150" height="30" class="node-rect" fill="#d98880"/>
+  <text x="250" y="570" class="node-text">Caching Strategy</text>
+  
+  <!-- Level 1: Replications -->
+  <line x1="120" y1="575" x2="140" y2="595" class="connection" stroke="#c0392b"/>
+  <rect x="140" y="590" width="120" height="30" class="node-rect" fill="#cd6155"/>
+  <text x="150" y="610" class="node-text">Replications</text>
+  
+  <!-- Level 2: Read | Write Replicas -->
+  <line x1="260" y1="605" x2="280" y2="605" class="connection" stroke="#cd6155"/>
+  <rect x="280" y="590" width="170" height="30" class="node-rect" fill="#d98880"/>
+  <text x="290" y="610" class="node-text">Read | Write Replicas</text>
+  
+  <!-- Root: API & Events Flow (Color: #16a085 - Green Sea) -->
+  <rect x="20" y="640" width="160" height="30" class="node-rect" fill="#16a085"/>
+  <text x="30" y="660" class="node-text">API &amp; Events Flow</text>
+  
+  <!-- Level 1: Interfaces -->
+  <line x1="180" y1="655" x2="200" y2="645" class="connection" stroke="#16a085"/>
+  <rect x="200" y="630" width="100" height="30" class="node-rect" fill="#45b39d"/>
+  <text x="210" y="650" class="node-text">Interfaces</text>
+  
+  <!-- Level 1: Sequence or Event Flow Diagrams -->
+  <line x1="180" y1="655" x2="200" y2="670" class="connection" stroke="#16a085"/>
+  <rect x="200" y="665" width="260" height="30" class="node-rect" fill="#45b39d"/>
+  <text x="210" y="685" class="node-text">Sequence or Event Flow Diagrams</text>
+  
+  <!-- Root: Trade-offs (Color: #8e44ad - Dark Purple) -->
+  <rect x="20" y="715" width="100" height="30" class="node-rect" fill="#8e44ad"/>
+  <text x="30" y="735" class="node-text">Trade-offs</text>
+  
+  <!-- Level 1: SQL vs NoSQL -->
+  <line x1="120" y1="730" x2="140" y2="710" class="connection" stroke="#8e44ad"/>
+  <rect x="140" y="695" width="130" height="30" class="node-rect" fill="#a569bd"/>
+  <text x="150" y="715" class="node-text">SQL vs NoSQL</text>
+  
+  <!-- Level 1: Strong vs Eventual Consistency -->
+  <line x1="120" y1="730" x2="140" y2="730" class="connection" stroke="#8e44ad"/>
+  <rect x="140" y="725" width="240" height="30" class="node-rect" fill="#a569bd"/>
+  <text x="150" y="745" class="node-text">Strong vs Eventual Consistency</text>
+  
+  <!-- Level 1: Caching vs DB Reads -->
+  <line x1="120" y1="730" x2="140" y2="755" class="connection" stroke="#8e44ad"/>
+  <rect x="390" y="695" width="170" height="30" class="node-rect" fill="#a569bd"/>
+  <text x="400" y="715" class="node-text">Caching vs DB Reads</text>
+  
+  <!-- Level 1: Sync vs Async -->
+  <line x1="120" y1="730" x2="140" y2="765" class="connection" stroke="#8e44ad"/>
+  <rect x="390" y="725" width="140" height="30" class="node-rect" fill="#a569bd"/>
+  <text x="400" y="745" class="node-text">Sync vs Async</text>
+  
+  <!-- Level 1: Cost vs Performance -->
+  <line x1="120" y1="730" x2="140" y2="755" class="connection" stroke="#8e44ad"/>
+  <rect x="580" y="715" width="180" height="30" class="node-rect" fill="#a569bd"/>
+  <text x="590" y="735" class="node-text">Cost vs Performance</text>
+  
+  <!-- Title -->
+  <text x="850" y="40" style="font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; text-anchor: start;">System Design</text>
+  <text x="850" y="70" style="font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; text-anchor: start;">Cheatsheet</text>
+</svg>
