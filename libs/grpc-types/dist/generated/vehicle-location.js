@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.VehicleLocationServiceClientImpl = exports.VehicleLocationServiceServiceName = exports.VehicleLocation = exports.VehicleLocationReply = exports.VehicleLocationRequest = exports.protobufPackage = void 0;
 /* eslint-disable */
 const wire_1 = require("@bufbuild/protobuf/wire");
-exports.protobufPackage = "vehicle_location";
+exports.protobufPackage = 'vehicle_location';
 function createBaseVehicleLocationRequest() {
     return { vehicleLocations: undefined };
 }
@@ -43,7 +43,9 @@ exports.VehicleLocationRequest = {
     },
     fromJSON(object) {
         return {
-            vehicleLocations: isSet(object.vehicleLocations) ? exports.VehicleLocation.fromJSON(object.vehicleLocations) : undefined,
+            vehicleLocations: isSet(object.vehicleLocations)
+                ? exports.VehicleLocation.fromJSON(object.vehicleLocations)
+                : undefined,
         };
     },
     toJSON(message) {
@@ -58,9 +60,10 @@ exports.VehicleLocationRequest = {
     },
     fromPartial(object) {
         const message = createBaseVehicleLocationRequest();
-        message.vehicleLocations = (object.vehicleLocations !== undefined && object.vehicleLocations !== null)
-            ? exports.VehicleLocation.fromPartial(object.vehicleLocations)
-            : undefined;
+        message.vehicleLocations =
+            object.vehicleLocations !== undefined && object.vehicleLocations !== null
+                ? exports.VehicleLocation.fromPartial(object.vehicleLocations)
+                : undefined;
         return message;
     },
 };
@@ -97,7 +100,9 @@ exports.VehicleLocationReply = {
         return message;
     },
     fromJSON(object) {
-        return { status: isSet(object.status) ? globalThis.Number(object.status) : 0 };
+        return {
+            status: isSet(object.status) ? globalThis.Number(object.status) : 0,
+        };
     },
     toJSON(message) {
         const obj = {};
@@ -116,20 +121,20 @@ exports.VehicleLocationReply = {
     },
 };
 function createBaseVehicleLocation() {
-    return { vehicleId: "", routeId: "", latitude: "", longitude: "" };
+    return { vehicleId: '', routeId: '', latitude: '', longitude: '' };
 }
 exports.VehicleLocation = {
     encode(message, writer = new wire_1.BinaryWriter()) {
-        if (message.vehicleId !== "") {
+        if (message.vehicleId !== '') {
             writer.uint32(10).string(message.vehicleId);
         }
-        if (message.routeId !== "") {
+        if (message.routeId !== '') {
             writer.uint32(18).string(message.routeId);
         }
-        if (message.latitude !== "") {
+        if (message.latitude !== '') {
             writer.uint32(26).string(message.latitude);
         }
-        if (message.longitude !== "") {
+        if (message.longitude !== '') {
             writer.uint32(34).string(message.longitude);
         }
         return writer;
@@ -179,24 +184,30 @@ exports.VehicleLocation = {
     },
     fromJSON(object) {
         return {
-            vehicleId: isSet(object.vehicleId) ? globalThis.String(object.vehicleId) : "",
-            routeId: isSet(object.routeId) ? globalThis.String(object.routeId) : "",
-            latitude: isSet(object.latitude) ? globalThis.String(object.latitude) : "",
-            longitude: isSet(object.longitude) ? globalThis.String(object.longitude) : "",
+            vehicleId: isSet(object.vehicleId)
+                ? globalThis.String(object.vehicleId)
+                : '',
+            routeId: isSet(object.routeId) ? globalThis.String(object.routeId) : '',
+            latitude: isSet(object.latitude)
+                ? globalThis.String(object.latitude)
+                : '',
+            longitude: isSet(object.longitude)
+                ? globalThis.String(object.longitude)
+                : '',
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.vehicleId !== "") {
+        if (message.vehicleId !== '') {
             obj.vehicleId = message.vehicleId;
         }
-        if (message.routeId !== "") {
+        if (message.routeId !== '') {
             obj.routeId = message.routeId;
         }
-        if (message.latitude !== "") {
+        if (message.latitude !== '') {
             obj.latitude = message.latitude;
         }
-        if (message.longitude !== "") {
+        if (message.longitude !== '') {
             obj.longitude = message.longitude;
         }
         return obj;
@@ -206,14 +217,14 @@ exports.VehicleLocation = {
     },
     fromPartial(object) {
         const message = createBaseVehicleLocation();
-        message.vehicleId = object.vehicleId ?? "";
-        message.routeId = object.routeId ?? "";
-        message.latitude = object.latitude ?? "";
-        message.longitude = object.longitude ?? "";
+        message.vehicleId = object.vehicleId ?? '';
+        message.routeId = object.routeId ?? '';
+        message.latitude = object.latitude ?? '';
+        message.longitude = object.longitude ?? '';
         return message;
     },
 };
-exports.VehicleLocationServiceServiceName = "vehicle_location.VehicleLocationService";
+exports.VehicleLocationServiceServiceName = 'vehicle_location.VehicleLocationService';
 class VehicleLocationServiceClientImpl {
     rpc;
     service;
@@ -224,7 +235,7 @@ class VehicleLocationServiceClientImpl {
     }
     SendVehicleLocation(request) {
         const data = exports.VehicleLocationRequest.encode(request).finish();
-        const promise = this.rpc.request(this.service, "SendVehicleLocation", data);
+        const promise = this.rpc.request(this.service, 'SendVehicleLocation', data);
         return promise.then((data) => exports.VehicleLocationReply.decode(new wire_1.BinaryReader(data)));
     }
 }

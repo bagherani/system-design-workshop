@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package post_like;
+
+service PostLikeService {
+  rpc LikePost (LikePostRequest) returns (LikePostReply);
+}
+
+message LikePostRequest {
+  string post_id = 1;
+  string user_id = 2;
+}
+
+message LikePostReply {
+  bool success = 1;
+}

@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package user_follow;
+
+// TODO: GRPC - Add user follow service

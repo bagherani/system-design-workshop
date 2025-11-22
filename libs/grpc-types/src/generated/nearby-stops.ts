@@ -5,29 +5,34 @@
 // source: nearby-stops.proto
 
 /* eslint-disable */
-import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
+import { BinaryReader, BinaryWriter } from '@bufbuild/protobuf/wire';
 
-export const protobufPackage = "nearby_stops";
+export const protobufPackage = 'nearby_stops';
 
 /** TODO: Add user location */
-export interface NearbyStopsRequest {
-}
+export interface NearbyStopsRequest {}
 
 /** TODO: Add nearby stops */
-export interface NearbyStopsReply {
-}
+export interface NearbyStopsReply {}
 
 function createBaseNearbyStopsRequest(): NearbyStopsRequest {
   return {};
 }
 
 export const NearbyStopsRequest: MessageFns<NearbyStopsRequest> = {
-  encode(_: NearbyStopsRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+  encode(
+    _: NearbyStopsRequest,
+    writer: BinaryWriter = new BinaryWriter()
+  ): BinaryWriter {
     return writer;
   },
 
-  decode(input: BinaryReader | Uint8Array, length?: number): NearbyStopsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number
+  ): NearbyStopsRequest {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNearbyStopsRequest();
     while (reader.pos < end) {
@@ -51,10 +56,14 @@ export const NearbyStopsRequest: MessageFns<NearbyStopsRequest> = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<NearbyStopsRequest>, I>>(base?: I): NearbyStopsRequest {
+  create<I extends Exact<DeepPartial<NearbyStopsRequest>, I>>(
+    base?: I
+  ): NearbyStopsRequest {
     return NearbyStopsRequest.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<NearbyStopsRequest>, I>>(_: I): NearbyStopsRequest {
+  fromPartial<I extends Exact<DeepPartial<NearbyStopsRequest>, I>>(
+    _: I
+  ): NearbyStopsRequest {
     const message = createBaseNearbyStopsRequest();
     return message;
   },
@@ -65,12 +74,16 @@ function createBaseNearbyStopsReply(): NearbyStopsReply {
 }
 
 export const NearbyStopsReply: MessageFns<NearbyStopsReply> = {
-  encode(_: NearbyStopsReply, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+  encode(
+    _: NearbyStopsReply,
+    writer: BinaryWriter = new BinaryWriter()
+  ): BinaryWriter {
     return writer;
   },
 
   decode(input: BinaryReader | Uint8Array, length?: number): NearbyStopsReply {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNearbyStopsReply();
     while (reader.pos < end) {
@@ -94,10 +107,14 @@ export const NearbyStopsReply: MessageFns<NearbyStopsReply> = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<NearbyStopsReply>, I>>(base?: I): NearbyStopsReply {
+  create<I extends Exact<DeepPartial<NearbyStopsReply>, I>>(
+    base?: I
+  ): NearbyStopsReply {
     return NearbyStopsReply.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<NearbyStopsReply>, I>>(_: I): NearbyStopsReply {
+  fromPartial<I extends Exact<DeepPartial<NearbyStopsReply>, I>>(
+    _: I
+  ): NearbyStopsReply {
     const message = createBaseNearbyStopsReply();
     return message;
   },
@@ -107,7 +124,7 @@ export interface NearbyStopsService {
   GetNearbyStops(request: NearbyStopsRequest): Promise<NearbyStopsReply>;
 }
 
-export const NearbyStopsServiceServiceName = "nearby_stops.NearbyStopsService";
+export const NearbyStopsServiceServiceName = 'nearby_stops.NearbyStopsService';
 export class NearbyStopsServiceClientImpl implements NearbyStopsService {
   private readonly rpc: Rpc;
   private readonly service: string;
@@ -118,26 +135,46 @@ export class NearbyStopsServiceClientImpl implements NearbyStopsService {
   }
   GetNearbyStops(request: NearbyStopsRequest): Promise<NearbyStopsReply> {
     const data = NearbyStopsRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "GetNearbyStops", data);
-    return promise.then((data) => NearbyStopsReply.decode(new BinaryReader(data)));
+    const promise = this.rpc.request(this.service, 'GetNearbyStops', data);
+    return promise.then((data) =>
+      NearbyStopsReply.decode(new BinaryReader(data))
+    );
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array
+  ): Promise<Uint8Array>;
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+type Builtin =
+  | Date
+  | Function
+  | Uint8Array
+  | string
+  | number
+  | boolean
+  | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+  ? globalThis.Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
-  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & {
+      [K in Exclude<keyof I, KeysOfUnion<P>>]: never;
+    };
 
 export interface MessageFns<T> {
   encode(message: T, writer?: BinaryWriter): BinaryWriter;

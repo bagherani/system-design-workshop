@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
+import { BinaryReader, BinaryWriter } from '@bufbuild/protobuf/wire';
 export declare const protobufPackage = "vehicle_location";
 export interface VehicleLocationRequest {
     vehicleLocations: VehicleLocation | undefined;

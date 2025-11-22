@@ -1,0 +1,15 @@
+{
+  "name": "@io/mobile",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "mobile"
+  },
+  "dependencies": {
+    "next": "~15.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "@grpc/grpc-js": "^1.9.0",
+    "@grpc/proto-loader": "^0.7.10"
+  }
+}

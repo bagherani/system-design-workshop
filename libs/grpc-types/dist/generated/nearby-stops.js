@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NearbyStopsServiceClientImpl = exports.NearbyStopsServiceServiceName = exports.NearbyStopsReply = exports.NearbyStopsRequest = exports.protobufPackage = void 0;
 /* eslint-disable */
 const wire_1 = require("@bufbuild/protobuf/wire");
-exports.protobufPackage = "nearby_stops";
+exports.protobufPackage = 'nearby_stops';
 function createBaseNearbyStopsRequest() {
     return {};
 }
@@ -83,7 +83,7 @@ exports.NearbyStopsReply = {
         return message;
     },
 };
-exports.NearbyStopsServiceServiceName = "nearby_stops.NearbyStopsService";
+exports.NearbyStopsServiceServiceName = 'nearby_stops.NearbyStopsService';
 class NearbyStopsServiceClientImpl {
     rpc;
     service;
@@ -94,7 +94,7 @@ class NearbyStopsServiceClientImpl {
     }
     GetNearbyStops(request) {
         const data = exports.NearbyStopsRequest.encode(request).finish();
-        const promise = this.rpc.request(this.service, "GetNearbyStops", data);
+        const promise = this.rpc.request(this.service, 'GetNearbyStops', data);
         return promise.then((data) => exports.NearbyStopsReply.decode(new wire_1.BinaryReader(data)));
     }
 }

@@ -5,9 +5,9 @@
 // source: vehicle-location.proto
 
 /* eslint-disable */
-import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
+import { BinaryReader, BinaryWriter } from '@bufbuild/protobuf/wire';
 
-export const protobufPackage = "vehicle_location";
+export const protobufPackage = 'vehicle_location';
 
 export interface VehicleLocationRequest {
   vehicleLocations: VehicleLocation | undefined;
@@ -29,15 +29,25 @@ function createBaseVehicleLocationRequest(): VehicleLocationRequest {
 }
 
 export const VehicleLocationRequest: MessageFns<VehicleLocationRequest> = {
-  encode(message: VehicleLocationRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+  encode(
+    message: VehicleLocationRequest,
+    writer: BinaryWriter = new BinaryWriter()
+  ): BinaryWriter {
     if (message.vehicleLocations !== undefined) {
-      VehicleLocation.encode(message.vehicleLocations, writer.uint32(10).fork()).join();
+      VehicleLocation.encode(
+        message.vehicleLocations,
+        writer.uint32(10).fork()
+      ).join();
     }
     return writer;
   },
 
-  decode(input: BinaryReader | Uint8Array, length?: number): VehicleLocationRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number
+  ): VehicleLocationRequest {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVehicleLocationRequest();
     while (reader.pos < end) {
@@ -48,7 +58,10 @@ export const VehicleLocationRequest: MessageFns<VehicleLocationRequest> = {
             break;
           }
 
-          message.vehicleLocations = VehicleLocation.decode(reader, reader.uint32());
+          message.vehicleLocations = VehicleLocation.decode(
+            reader,
+            reader.uint32()
+          );
           continue;
         }
       }
@@ -62,7 +75,9 @@ export const VehicleLocationRequest: MessageFns<VehicleLocationRequest> = {
 
   fromJSON(object: any): VehicleLocationRequest {
     return {
-      vehicleLocations: isSet(object.vehicleLocations) ? VehicleLocation.fromJSON(object.vehicleLocations) : undefined,
+      vehicleLocations: isSet(object.vehicleLocations)
+        ? VehicleLocation.fromJSON(object.vehicleLocations)
+        : undefined,
     };
   },
 
@@ -74,14 +89,19 @@ export const VehicleLocationRequest: MessageFns<VehicleLocationRequest> = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<VehicleLocationRequest>, I>>(base?: I): VehicleLocationRequest {
+  create<I extends Exact<DeepPartial<VehicleLocationRequest>, I>>(
+    base?: I
+  ): VehicleLocationRequest {
     return VehicleLocationRequest.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<VehicleLocationRequest>, I>>(object: I): VehicleLocationRequest {
+  fromPartial<I extends Exact<DeepPartial<VehicleLocationRequest>, I>>(
+    object: I
+  ): VehicleLocationRequest {
     const message = createBaseVehicleLocationRequest();
-    message.vehicleLocations = (object.vehicleLocations !== undefined && object.vehicleLocations !== null)
-      ? VehicleLocation.fromPartial(object.vehicleLocations)
-      : undefined;
+    message.vehicleLocations =
+      object.vehicleLocations !== undefined && object.vehicleLocations !== null
+        ? VehicleLocation.fromPartial(object.vehicleLocations)
+        : undefined;
     return message;
   },
 };
@@ -91,15 +111,22 @@ function createBaseVehicleLocationReply(): VehicleLocationReply {
 }
 
 export const VehicleLocationReply: MessageFns<VehicleLocationReply> = {
-  encode(message: VehicleLocationReply, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+  encode(
+    message: VehicleLocationReply,
+    writer: BinaryWriter = new BinaryWriter()
+  ): BinaryWriter {
     if (message.status !== 0) {
       writer.uint32(8).int32(message.status);
     }
     return writer;
   },
 
-  decode(input: BinaryReader | Uint8Array, length?: number): VehicleLocationReply {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(
+    input: BinaryReader | Uint8Array,
+    length?: number
+  ): VehicleLocationReply {
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVehicleLocationReply();
     while (reader.pos < end) {
@@ -123,7 +150,9 @@ export const VehicleLocationReply: MessageFns<VehicleLocationReply> = {
   },
 
   fromJSON(object: any): VehicleLocationReply {
-    return { status: isSet(object.status) ? globalThis.Number(object.status) : 0 };
+    return {
+      status: isSet(object.status) ? globalThis.Number(object.status) : 0,
+    };
   },
 
   toJSON(message: VehicleLocationReply): unknown {
@@ -134,10 +163,14 @@ export const VehicleLocationReply: MessageFns<VehicleLocationReply> = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<VehicleLocationReply>, I>>(base?: I): VehicleLocationReply {
+  create<I extends Exact<DeepPartial<VehicleLocationReply>, I>>(
+    base?: I
+  ): VehicleLocationReply {
     return VehicleLocationReply.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<VehicleLocationReply>, I>>(object: I): VehicleLocationReply {
+  fromPartial<I extends Exact<DeepPartial<VehicleLocationReply>, I>>(
+    object: I
+  ): VehicleLocationReply {
     const message = createBaseVehicleLocationReply();
     message.status = object.status ?? 0;
     return message;
@@ -145,28 +178,32 @@ export const VehicleLocationReply: MessageFns<VehicleLocationReply> = {
 };
 
 function createBaseVehicleLocation(): VehicleLocation {
-  return { vehicleId: "", routeId: "", latitude: "", longitude: "" };
+  return { vehicleId: '', routeId: '', latitude: '', longitude: '' };
 }
 
 export const VehicleLocation: MessageFns<VehicleLocation> = {
-  encode(message: VehicleLocation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.vehicleId !== "") {
+  encode(
+    message: VehicleLocation,
+    writer: BinaryWriter = new BinaryWriter()
+  ): BinaryWriter {
+    if (message.vehicleId !== '') {
       writer.uint32(10).string(message.vehicleId);
     }
-    if (message.routeId !== "") {
+    if (message.routeId !== '') {
       writer.uint32(18).string(message.routeId);
     }
-    if (message.latitude !== "") {
+    if (message.latitude !== '') {
       writer.uint32(26).string(message.latitude);
     }
-    if (message.longitude !== "") {
+    if (message.longitude !== '') {
       writer.uint32(34).string(message.longitude);
     }
     return writer;
   },
 
   decode(input: BinaryReader | Uint8Array, length?: number): VehicleLocation {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const reader =
+      input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVehicleLocation();
     while (reader.pos < end) {
@@ -215,49 +252,64 @@ export const VehicleLocation: MessageFns<VehicleLocation> = {
 
   fromJSON(object: any): VehicleLocation {
     return {
-      vehicleId: isSet(object.vehicleId) ? globalThis.String(object.vehicleId) : "",
-      routeId: isSet(object.routeId) ? globalThis.String(object.routeId) : "",
-      latitude: isSet(object.latitude) ? globalThis.String(object.latitude) : "",
-      longitude: isSet(object.longitude) ? globalThis.String(object.longitude) : "",
+      vehicleId: isSet(object.vehicleId)
+        ? globalThis.String(object.vehicleId)
+        : '',
+      routeId: isSet(object.routeId) ? globalThis.String(object.routeId) : '',
+      latitude: isSet(object.latitude)
+        ? globalThis.String(object.latitude)
+        : '',
+      longitude: isSet(object.longitude)
+        ? globalThis.String(object.longitude)
+        : '',
     };
   },
 
   toJSON(message: VehicleLocation): unknown {
     const obj: any = {};
-    if (message.vehicleId !== "") {
+    if (message.vehicleId !== '') {
       obj.vehicleId = message.vehicleId;
     }
-    if (message.routeId !== "") {
+    if (message.routeId !== '') {
       obj.routeId = message.routeId;
     }
-    if (message.latitude !== "") {
+    if (message.latitude !== '') {
       obj.latitude = message.latitude;
     }
-    if (message.longitude !== "") {
+    if (message.longitude !== '') {
       obj.longitude = message.longitude;
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<VehicleLocation>, I>>(base?: I): VehicleLocation {
+  create<I extends Exact<DeepPartial<VehicleLocation>, I>>(
+    base?: I
+  ): VehicleLocation {
     return VehicleLocation.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<VehicleLocation>, I>>(object: I): VehicleLocation {
+  fromPartial<I extends Exact<DeepPartial<VehicleLocation>, I>>(
+    object: I
+  ): VehicleLocation {
     const message = createBaseVehicleLocation();
-    message.vehicleId = object.vehicleId ?? "";
-    message.routeId = object.routeId ?? "";
-    message.latitude = object.latitude ?? "";
-    message.longitude = object.longitude ?? "";
+    message.vehicleId = object.vehicleId ?? '';
+    message.routeId = object.routeId ?? '';
+    message.latitude = object.latitude ?? '';
+    message.longitude = object.longitude ?? '';
     return message;
   },
 };
 
 export interface VehicleLocationService {
-  SendVehicleLocation(request: VehicleLocationRequest): Promise<VehicleLocationReply>;
+  SendVehicleLocation(
+    request: VehicleLocationRequest
+  ): Promise<VehicleLocationReply>;
 }
 
-export const VehicleLocationServiceServiceName = "vehicle_location.VehicleLocationService";
-export class VehicleLocationServiceClientImpl implements VehicleLocationService {
+export const VehicleLocationServiceServiceName =
+  'vehicle_location.VehicleLocationService';
+export class VehicleLocationServiceClientImpl
+  implements VehicleLocationService
+{
   private readonly rpc: Rpc;
   private readonly service: string;
   constructor(rpc: Rpc, opts?: { service?: string }) {
@@ -265,28 +317,50 @@ export class VehicleLocationServiceClientImpl implements VehicleLocationService 
     this.rpc = rpc;
     this.SendVehicleLocation = this.SendVehicleLocation.bind(this);
   }
-  SendVehicleLocation(request: VehicleLocationRequest): Promise<VehicleLocationReply> {
+  SendVehicleLocation(
+    request: VehicleLocationRequest
+  ): Promise<VehicleLocationReply> {
     const data = VehicleLocationRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "SendVehicleLocation", data);
-    return promise.then((data) => VehicleLocationReply.decode(new BinaryReader(data)));
+    const promise = this.rpc.request(this.service, 'SendVehicleLocation', data);
+    return promise.then((data) =>
+      VehicleLocationReply.decode(new BinaryReader(data))
+    );
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array
+  ): Promise<Uint8Array>;
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+type Builtin =
+  | Date
+  | Function
+  | Uint8Array
+  | string
+  | number
+  | boolean
+  | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+  ? globalThis.Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
-  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & {
+      [K in Exclude<keyof I, KeysOfUnion<P>>]: never;
+    };
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

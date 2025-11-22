@@ -29,6 +29,12 @@
     },
     {
       "path": "./libs/messaging-util"
+    },
+    {
+      "path": "./apps/mobile"
+    },
+    {
+      "path": "./apps/like-service"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
+import { BinaryReader, BinaryWriter } from '@bufbuild/protobuf/wire';
 export declare const protobufPackage = "nearby_stops";
 /** TODO: Add user location */
 export interface NearbyStopsRequest {
