@@ -120,11 +120,7 @@ export default function Index() {
             </div>
           </div>
         </div>
-
-        <div className="mt-8 text-center text-gray-600 text-sm">
-          <p>gRPC Like Service running on localhost:50052</p>
-          <p className="mt-1">Random IDs generated for each like request</p>
-        </div>
+        
       </div>
     </div>
   );
