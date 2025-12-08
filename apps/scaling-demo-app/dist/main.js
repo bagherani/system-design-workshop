@@ -101,7 +101,7 @@ app.get('/healthz', (req, res) => {
     });
 });
 app.get('/', async (req, res) => {
-    const value = 'mohi-cartoon.jpeg-1762702280690.jpeg';
+    const user = { id: 1123, profileKey: 123 };
     const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
     const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
     const region = process.env.AWS_REGION;
@@ -120,10 +120,10 @@ app.get('/', async (req, res) => {
     });
     const presignedUrl = await (0, s3_request_presigner_1.getSignedUrl)(s3, new client_s3_1.GetObjectCommand({
         Bucket: bucketName,
-        Key: value,
+        Key: '123',
     }));
     res.send({
-        key: value,
+        key: '123',
         presignedUrl,
     });
 });
