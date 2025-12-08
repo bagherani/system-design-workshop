@@ -19,7 +19,7 @@ app.get('/healthz', (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-  const user = { id: 1123, profileKey: value };
+  const user = { id: 1123, profileKey: 123 };
   const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
   const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
   const region = process.env.AWS_REGION;
@@ -43,12 +43,12 @@ app.get('/', async (req, res) => {
     s3,
     new GetObjectCommand({
       Bucket: bucketName,
-      Key: value,
+      Key: '123',
     })
   );
 
   res.send({
-    key: value,
+    key: '123',
     presignedUrl,
   });
 });
