@@ -1,16 +1,16 @@
 import express from 'express';
 import { ip } from 'address';
-import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { Upload } from '@aws-sdk/lib-storage';
-import multer from 'multer';
+import {
+  GetObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from '@aws-sdk/client-s3';
 import 'dotenv/config';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 const port = process.env.PORT || 5001;
 const app = express();
-
-// Configure multer for memory storage
-const upload = multer({ storage: multer.memoryStorage() });
+app.use(express.json());
 
 app.get('/healthz', (req, res) => {
   res.send({
@@ -18,108 +18,81 @@ app.get('/healthz', (req, res) => {
   });
 });
 
-app.get('/', async (req, res) => {
-  const user = { id: 1123, profileKey: 123 };
-  const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-  const region = process.env.AWS_REGION;
-  const bucketName = process.env.AWS_BUCKET_NAME;
-
-  if (!accessKeyId || !secretAccessKey || !region || !bucketName) {
-    return res.status(500).send({
-      message: 'AWS credentials not configured',
-    });
+function getRequiredEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing required env var: ${name}`);
   }
+  return value;
+}
 
-  const s3 = new S3Client({
+function createS3Client(): S3Client {
+  const region = getRequiredEnv('AWS_REGION');
+  const accessKeyId = getRequiredEnv('AWS_ACCESS_KEY_ID');
+  const secretAccessKey = getRequiredEnv('AWS_SECRET_ACCESS_KEY');
+  return new S3Client({
     region,
-    credentials: {
-      accessKeyId,
-      secretAccessKey,
-    },
+    credentials: { accessKeyId, secretAccessKey },
   });
+}
+
+app.get('/', async (_: express.Request, res: express.Response) => {
+  const s3 = createS3Client();
+  const bucketName = getRequiredEnv('AWS_BUCKET_NAME');
 
   const presignedUrl = await getSignedUrl(
     s3,
     new GetObjectCommand({
       Bucket: bucketName,
-      Key: '123',
-    })
+      Key: 'mohi.jpg',
+    }),
+    {
+      expiresIn: 10,
+    }
   );
 
   res.send({
-    key: '123',
     presignedUrl,
   });
 });
 
-app.post(
-  '/',
-  upload.single('file'),
-  async (req: express.Request, res: express.Response) => {
-    // upload a file to s3
-    const file = req.file;
-    if (!file) {
-      return res.status(400).send({
-        message: 'No file uploaded',
-      });
-    }
+// Returns a presigned URL you can PUT to from Postman (no file bytes sent to this server).
+const uploadUrlHandler = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  const generatedName = Math.random().toString(36).substring(2, 15);
+  const name = `${generatedName}.jpg`;
+  const key = `${Date.now()}-${name}`;
 
-    const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-    const region = process.env.AWS_REGION;
-    const bucketName = process.env.AWS_BUCKET_NAME;
+  const s3 = createS3Client();
+  const bucketName = getRequiredEnv('AWS_BUCKET_NAME');
 
-    if (!accessKeyId || !secretAccessKey) {
-      return res.status(500).send({
-        message: 'AWS credentials not configured',
-      });
-    }
+  const expiresInSeconds = 60;
+  const requiredHeaders: Record<string, string> = {};
 
-    if (!region || !bucketName) {
-      return res.status(500).send({
-        message: 'AWS region or bucket name not configured',
-      });
-    }
+  const uploadUrl = await getSignedUrl(
+    s3,
+    new PutObjectCommand({
+      Bucket: bucketName,
+      Key: key,
+      ContentType: 'image/jpg',
+    }),
+    { expiresIn: expiresInSeconds }
+  );
 
-    const s3 = new S3Client({
-      region,
-      credentials: {
-        accessKeyId,
-        secretAccessKey,
-      },
-    });
+  res.send({
+    key,
+    uploadUrl,
+    method: 'PUT',
+    requiredHeaders,
+    expiresInSeconds,
+  });
+};
 
-    const Key = `${file.originalname}-${Date.now()}.${
-      file.mimetype.split('/')[1]
-    }`;
-    const s3Upload = new Upload({
-      client: s3,
-      params: {
-        Bucket: bucketName,
-        Key: Key,
-        Body: file.buffer,
-      },
-    });
-    // store in you db
-
-    await s3Upload.done();
-
-    // generate presigned url for the file
-    const presignedUrl = await getSignedUrl(
-      s3,
-      new GetObjectCommand({
-        Bucket: bucketName,
-        Key: Key,
-      })
-    );
-
-    return res.send({
-      message: 'file uploaded successfully',
-      presignedUrl,
-    });
-  }
-);
+// Keep POST / for convenience; /upload-url is an alias.
+app.post('/', uploadUrlHandler);
+app.post('/upload-url', uploadUrlHandler);
 
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
