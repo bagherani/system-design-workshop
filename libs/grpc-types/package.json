@@ -20,10 +20,7 @@
     "install-protoc-windows-2": "winget install protobuf",
     "install-protoc-windows-3": "scoop install protobuf",
     "install-protoc-linux": "sudo apt-get install protobuf-compiler",
-    "generate:vehicle-location": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/vehicle-location.proto",
-    "generate:nearby-stops": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/nearby-stops.proto",
-    "generate:post-like": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/post-like.proto",
-    "generate:user-follow": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/user-follow.proto"
+    "generate:post-like": "protoc --plugin=../../node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/generated --ts_proto_opt=esModuleInterop=true --proto_path=./src/proto ./src/proto/post-like.proto"
   },
   "dependencies": {
     "tslib": "^2.3.0",

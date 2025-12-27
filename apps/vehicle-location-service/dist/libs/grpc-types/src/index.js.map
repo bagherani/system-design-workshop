@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../../libs/grpc-types/src/index.ts"],
-  "sourcesContent": ["// Export all generated gRPC types and services\nexport * as VehicleLocationTypes from './generated/vehicle-location';\nexport * as NearbyStopsTypes from './generated/nearby-stops';\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA,2BAAsC;AACtC,uBAAkC;",
-  "names": []
-}

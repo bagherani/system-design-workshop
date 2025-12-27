@@ -5,6 +5,7 @@ A gRPC-based microservice for handling post likes. This service provides a simpl
 ## Architecture
 
 The service is built using:
+
 - **gRPC** for high-performance RPC communication
 - **Protocol Buffers** for type-safe message definitions
 - **TypeScript** for type safety
@@ -72,15 +73,12 @@ const postLikePackage = grpcObject.post_like as grpc.GrpcObject;
 const PostLikeService = postLikePackage.PostLikeService as grpc.ServiceClientConstructor;
 
 // Create a client
-const client = new PostLikeService(
-  'localhost:50052',
-  grpc.credentials.createInsecure()
-) as any;
+const client = new PostLikeService('localhost:50052', grpc.credentials.createInsecure()) as any;
 
 // Make a request
 const request: LikePostRequest = {
   postId: 'post-123',
-  userId: 'user-456'
+  userId: 'user-456',
 };
 
 client.LikePost(request, (error: any, response: any) => {
@@ -95,12 +93,14 @@ client.LikePost(request, (error: any, response: any) => {
 ### 2. Example Test Client
 
 See `src/client-example.ts` for a complete working example that demonstrates:
+
 - Creating a gRPC client
 - Making multiple like requests
 - Handling responses and errors
 - Proper client cleanup
 
 Run the example:
+
 ```bash
 npx ts-node apps/like-service/src/client-example.ts
 ```
@@ -118,13 +118,16 @@ grpcurl -plaintext -d '{"post_id": "post-123", "user_id": "user-456"}' \
 ### LikePost RPC
 
 **Request:**
+
 - `post_id` (string, required): The ID of the post to like
 - `user_id` (string, required): The ID of the user liking the post
 
 **Response:**
+
 - `success` (boolean): Indicates if the operation was successful
 
 **Error Codes:**
+
 - `INVALID_ARGUMENT`: Missing required fields (post_id or user_id)
 - `INTERNAL`: Internal server error
 
@@ -179,6 +182,4 @@ nx lint like-service
 
 ## Related Services
 
-- `vehicle-location-service` (port 50051): Similar gRPC service pattern
 - `@io/grpc-types`: Shared proto definitions library
-

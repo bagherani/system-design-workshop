@@ -1,0 +1,14 @@
+{
+  "name": "@io/mobile-eda",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "mobile-eda"
+  },
+  "dependencies": {
+    "next": "~15.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "@io/messaging-util": "0.0.1"
+  }
+}

@@ -7,16 +7,10 @@
       "path": "./apps/app"
     },
     {
-      "path": "./apps/vehicle-app"
-    },
-    {
       "path": "./apps/scaling-demo-app"
     },
     {
       "path": "./libs/data-models"
-    },
-    {
-      "path": "./apps/vehicle-location-service"
     },
     {
       "path": "./apps/nearby-stops-service"
@@ -32,6 +26,9 @@
     },
     {
       "path": "./apps/mobile"
+    },
+    {
+      "path": "./apps/mobile-eda"
     },
     {
       "path": "./apps/like-service"
