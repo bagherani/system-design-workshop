@@ -94,7 +94,7 @@ Wait 15 seconds for all brokers to start and form a cluster.
 docker exec kafka-broker-1 kafka-topics \
   --bootstrap-server localhost:9092 \
   --create \
-  --topic vehicle-location \
+  --topic post_liked \
   --partitions 3 \
   --replication-factor 2
 ```
@@ -105,7 +105,7 @@ Verify:
 docker exec kafka-broker-1 kafka-topics \
   --bootstrap-server localhost:9092 \
   --describe \
-  --topic vehicle-location
+  --topic post_liked
 ```
 
 You should see output showing 3 partitions with 2 replicas each, distributed across the 3 brokers.
