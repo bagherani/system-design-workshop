@@ -31,7 +31,7 @@ export declare function createConsumer(groupId: string, topics: string[], handle
     topic: string;
     partition: number;
     key: string | null;
-    value: Record<string, unknown>;
+    value: Record<string, unknown> | null;
     offset: string;
 }) => Promise<void>): Promise<Consumer>;
 /**

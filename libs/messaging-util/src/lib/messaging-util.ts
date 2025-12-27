@@ -84,7 +84,7 @@ export async function createConsumer(
     topic: string;
     partition: number;
     key: string | null;
-    value: Record<string, unknown>;
+    value: Record<string, unknown> | null;
     offset: string;
   }) => Promise<void>
 ): Promise<Consumer> {
@@ -99,8 +99,8 @@ export async function createConsumer(
     console.log(`📫 Subscribed to topic: ${topic}`);
   }
 
-  // Run consumer
-  await consumer.run({
+  // Run consumer (do not await; this is a long-running loop)
+  consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       try {
         const value = message.value

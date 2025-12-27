@@ -32,6 +32,9 @@
     },
     {
       "path": "./apps/like-service"
+    },
+    {
+      "path": "./apps/like-service-eda"
     }
   ]
 }
