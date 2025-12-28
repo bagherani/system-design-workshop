@@ -82,3 +82,8 @@ nx lint like-service-eda
 
 - `mobile-eda`: Produces `post_liked` events
 - `messaging-util`: Kafka client helpers
+
+## How to run
+```
+npx nx serve like-service-eda --output-style=stream
+```
